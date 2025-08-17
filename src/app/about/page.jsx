@@ -1,5 +1,6 @@
 
 const About = () => {
+    // throw error("This is an error from about page");
     return (
         <div>
             <h1 className="text-2xl">This is about page</h1>
