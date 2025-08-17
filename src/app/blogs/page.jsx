@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const Blogs = () => {
     const blogs = [
@@ -230,12 +231,12 @@ const Blogs = () => {
 
                                 {/* Read More */}
                                 <div className="mt-5">
-                                    <a
+                                    <Link
                                         href={`/blogs/${blog.slug}`}
                                         className="inline-block text-green-600 font-medium text-sm hover:underline"
                                     >
                                         Read More →
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
