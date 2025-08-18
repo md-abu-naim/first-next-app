@@ -1,14 +1,13 @@
+'use client';
+
 import Link from "next/link";
 
 const Navber = () => {
 
     const navLinks = <>
         <li><Link href='/'>Home</Link></li>
-        <ul>
-            <li><Link href='/about'>About</Link></li>
-            <li><Link href='/about/address'>Address</Link></li>
-        </ul>
         <li><Link href='/blogs'>Blogs</Link></li>
+        <li><Link href='/about'>About</Link></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
