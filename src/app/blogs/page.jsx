@@ -1,13 +1,18 @@
 import Link from "next/link";
 import style from './style.module.css'
 
-export const getBlogs = async() => {
+export const metadata = {
+    title: "All Blogs",
+    description: "In this page fetching all Blogs data",
+};
+
+export const getBlogs = async () => {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await res.json()
     return data
 }
 
-const Blogs = async() => {
+const Blogs = async () => {
     const blogs = await getBlogs()
 
 
@@ -44,7 +49,7 @@ const Blogs = async() => {
 
                                 {/* Author + Meta */}
                                 <div className="flex items-center gap-3 mt-4">
-                                    
+
                                     <div>
                                         <p className="text-sm font-medium text-gray-800">
                                             {blog.title}
