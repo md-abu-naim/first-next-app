@@ -1,4 +1,5 @@
 import Link from "next/link";
+import style from './style.module.css'
 
 export const getBlogs = async() => {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -12,7 +13,7 @@ const Blogs = async() => {
 
     return (
         <div className="bg-gray-50 min-h-screen py-12 px-6">
-            <div className="max-w-7xl mx-auto">
+            <div className={`max-w-7xl mx-auto ${style['bg-border']}`}>
                 {/* Page Header */}
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
                     Latest <span className="text-green-600">Blogs</span>
