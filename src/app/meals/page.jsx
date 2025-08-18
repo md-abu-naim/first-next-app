@@ -1,25 +1,18 @@
-"use client";
-import { useEffect, useState } from "react";
+import SearchInput from "./Components/SearchInput";
 
-const Meals = () => {
-    const [meals, setMeals] = useState([]);
-    const [search, setSearch] = useState('');
+const Meals = async ({ searchParams }) => {
+    const query = searchParams
+    console.log(searchParams);
+    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query.search}`)
+    const data = await res.json()
+    console.log(data);
+    const meals  = data.meals
 
-    useEffect(() => {
-        const fetchMeals = async() => {
-            const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
-            const data = await res.json()
-            setMeals(data.meals)
-        }
-
-        fetchMeals()
-    }, [search])
+    
     return (
         <div>
             <h1 className="text-5xl">Meals Page</h1>
-            <div>
-                <input onChange={e => setSearch(e.target.value)} type="text" value={search} className="input" />
-            </div>
+            <SearchInput />
             <div className="grid grid-cols-3 gap-4">
                 {
                     meals?.map(meal => <div key={meal.idMeal}>
