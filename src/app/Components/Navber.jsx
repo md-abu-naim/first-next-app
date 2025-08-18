@@ -8,6 +8,8 @@ const Navber = () => {
         <li><Link href='/'>Home</Link></li>
         <li><Link href='/blogs'>Blogs</Link></li>
         <li><Link href='/about'>About</Link></li>
+        <li><Link href='/login'>Login</Link></li>
+        <li><Link href='/register'>Register</Link></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
