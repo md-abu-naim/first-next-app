@@ -22,6 +22,7 @@ export const metadata = {
     default: 'Learining Next.js',
     template: '%s | Learning Next.js'
   },
+  keywords: ['next', 'learning', 'etc'],
   description: "This site is created by me for learnign purpos",
 };
 
