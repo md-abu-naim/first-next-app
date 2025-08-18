@@ -4,7 +4,10 @@ const Navber = () => {
 
     const navLinks = <>
         <li><Link href='/'>Home</Link></li>
-        <li><Link href='/about'>About</Link></li>
+        <ul>
+            <li><Link href='/about'>About</Link></li>
+            <li><Link href='/about/address'>Address</Link></li>
+        </ul>
         <li><Link href='/blogs'>Blogs</Link></li>
     </>
     return (
@@ -20,7 +23,7 @@ const Navber = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <Link href='/' className="btn btn-ghost text-xl">daisyUI</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
