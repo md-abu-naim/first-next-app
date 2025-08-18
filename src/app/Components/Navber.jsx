@@ -1,8 +1,12 @@
 'use client';
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navber = () => {
+    const pathName = usePathname()
+
+    if(pathName.includes('dashboard')) return null
 
     const navLinks = <>
         <li><Link href='/'>Home</Link></li>
