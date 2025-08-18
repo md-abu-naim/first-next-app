@@ -1,17 +1,17 @@
 import SearchInput from "./Components/SearchInput";
 
 export const metadata = {
-  title: "All Meals || Learning Next.js",
-  description: "In this page fetching all meals data",
+    title: "All Meals || Learning Next.js",
+    description: "In this page fetching all meals data",
 };
 
 const Meals = async ({ searchParams }) => {
     const query = searchParams
     const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query.search}`)
     const data = await res.json()
-    const meals  = data.meals
+    const meals = data.meals
 
-    
+
     return (
         <div>
             <h1 className="text-5xl">Meals Page</h1>
