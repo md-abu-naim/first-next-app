@@ -13,8 +13,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// export const metadata = {
+//   title: "Learning Next.js",
+//   description: "This site is created by me for learnign purpos",
+// };
 export const metadata = {
-  title: "Learning Next.js",
+  title: {
+    default: 'Learining Next.js',
+    template: '%s | Learning Next.js'
+  },
   description: "This site is created by me for learnign purpos",
 };
 

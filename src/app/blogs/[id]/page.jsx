@@ -5,6 +5,17 @@ export const getBlog = async(id) => {
     return blog
 }
 
+export const generateMetadata = async({params}) => {
+    const id = (await params).id
+    const blog =await getBlog(id)
+
+    return{
+        title: blog.title,
+        description: blog.body
+    }
+ 
+}
+
 const BlogsDetails = async({params}) => {
     // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
     // const blog = await res.json() 
