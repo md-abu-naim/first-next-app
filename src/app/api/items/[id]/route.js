@@ -13,9 +13,7 @@ export async function GET(req, { params }) {
 export async function DELETE(req, { params }) {
     const p = await params
     const singleData = await dbConnect('products').deleteOne({ _id: new ObjectId(p.id) })
-
-
-    return Response.json({ params: p })
+    return Response.json(singleData)
 }
 
 // Upudate Data By PATCH
