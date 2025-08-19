@@ -8,6 +8,7 @@ export async function GET() {
     //     status: 200,
     // }
 
+    const data = await dbConnect('products').find().toArray()
  
   return Response.json( data )
 }
