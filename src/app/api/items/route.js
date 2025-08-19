@@ -11,7 +11,7 @@ export async function GET() {
 
 export async function POST(req) {
   
-    const postedData = 
+    const postedData = req.body
  
-  return Response.json({ data })
+  return Response.json({ postedData })
 }
