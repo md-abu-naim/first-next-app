@@ -5,7 +5,6 @@ import { ObjectId } from "mongodb";
 export async function GET(req, { params }) {
     const p = await params
     const singleData = await dbConnect('products').findOne({ _id: new ObjectId(p.id) })
-
     return Response.json(singleData)
 }
 
@@ -21,9 +20,7 @@ export async function PATCH(req, { params }) {
     const p = await params
     const data = await req.json()
     const filter = { _id: new ObjectId(p.id) }
-    const options = {upsert: true}
-    const singleData = await dbConnect('products').updateOne(filter, {$set: {...data}}, options)
-
-
+    const options = { upsert: true }
+    const singleData = await dbConnect('products').updateOne(filter, { $set: { ...data } }, options)
     return Response.json(singleData)
 }
