@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SearchInput from "./Components/SearchInput";
 
 export const metadata = {
@@ -19,6 +20,7 @@ const Meals = async ({ searchParams }) => {
             <div className="grid grid-cols-3 gap-4 bg-color">
                 {
                     meals?.map(meal => <div key={meal.idMeal}>
+                        <Image src={meal.strMealThumb} width={641} height={644} alt={meal.strMeal} />
                         <h1 className="text-xl">{meal.strMeal}</h1>
                         <p>{meal?.strInstructions}</p>
                     </div>)
