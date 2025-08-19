@@ -16,6 +16,7 @@ export async function GET() {
 export async function POST(req) {
   
     const postedData = req.body
+    const result = await dbConnect('products').insertOne(postedData)
  
-  return Response.json({ postedData })
+  return Response.json(result)
 }
