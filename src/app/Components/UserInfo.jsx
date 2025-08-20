@@ -4,9 +4,9 @@ import { useSession } from "next-auth/react";
 
 const UserInfo = () => {
     const session = useSession()
-    console.log(session);
     return (
         <div>
+            <p>{JSON.stringify(session)}</p>
             user info
         </div>
     );
