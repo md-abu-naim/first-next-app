@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -89,7 +88,7 @@ export default function Home() {
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 We are dedicated to helping developers grow by providing practical projects,
-                tutorials, and resources. Whether you're a beginner or experienced,
+                tutorials, and resources. Whether youre a beginner or experienced,
                 you’ll find something valuable here.
               </p>
               <p className="text-gray-600 leading-relaxed">

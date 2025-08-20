@@ -8,7 +8,6 @@ export async function GET() {
 
 export async function POST(req) {
     const postedData = await req.json()
-    console.log(postedData);
     const result = await dbConnect('products').insertOne(postedData)
     revalidatePath('/products')
     return Response.json(result)

@@ -1,11 +1,13 @@
-import { redirect } from "next/navigation";
+// import dbConnect from "@/lib/dbConnect";
+// import { redirect } from "next/navigation";
 
 const Products = async () => {
     const res = await fetch('http://localhost:3000/api/items', {
         cache: 'force-cache'
     })
     const products = await res.json()
-    console.log(products);
+
+    // const products = await dbConnect("products").find().toArray()
 
     // if(products?.length > 8) redirect('/')
     return (
