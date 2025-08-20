@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 
 const Products = async () => {
     const res = await fetch('http://localhost:3000/api/items', {
@@ -5,6 +6,8 @@ const Products = async () => {
     })
     const products = await res.json()
     console.log(products);
+
+    // if(products?.length > 8) redirect('/')
     return (
         <div>
             <h1 className="text-3xl">All Products {products?.length}</h1>
