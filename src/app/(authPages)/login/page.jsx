@@ -1,4 +1,5 @@
 import LoginButton from "@/app/Components/LoginButton";
+import UserInfo from "@/app/Components/UserInfo";
 
 
 const Login = () => {
@@ -7,6 +8,7 @@ const Login = () => {
             <h1>Login Page</h1>
             {/* <button onClick={() => signIn()}>Login</button> */}
             <LoginButton />
+            <UserInfo />
         </div>
     );
 };
