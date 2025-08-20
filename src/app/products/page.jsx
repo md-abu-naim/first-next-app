@@ -1,12 +1,14 @@
 
 const Products = async () => {
-    const res = await fetch('http://localhost:3000/api/items')
+    const res = await fetch('http://localhost:3000/api/items', {
+        cache: 'force-cache'
+    })
     const products = await res.json()
     console.log(products);
     return (
         <div>
             <h1 className="text-3xl">All Products {products?.length}</h1>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-4 gap-4">
                 {
                     products.map(p => <div key={p._id} className="max-w-sm bg-black rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         {/* Image */}
