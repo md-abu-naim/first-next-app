@@ -1,4 +1,6 @@
+
 import NextAuth from "next-auth"
+import CredentialsProvider from "next-auth/providers/credentials"
 
 const handler = NextAuth({
     providers: [
@@ -11,6 +13,7 @@ const handler = NextAuth({
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
                 username: { label: "Username", type: "text", placeholder: "jsmith" },
+                email: { label: "email", type: "email", placeholder: 'example@gail.com' },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials, req) {
@@ -20,15 +23,17 @@ const handler = NextAuth({
                 // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
                 // You can also use the `req` object to obtain additional parameters
                 // (i.e., the request IP address)
-                const res = await fetch("/your/endpoint", {
-                    method: 'POST',
-                    body: JSON.stringify(credentials),
-                    headers: { "Content-Type": "application/json" }
-                })
-                const user = await res.json()
+                // const res = await fetch("/your/endpoint", {
+                //     method: 'POST',
+                //     body: JSON.stringify(credentials),
+                //     headers: { "Content-Type": "application/json" }
+                // })
+                // const user = await res.json()
+
+                const user = {id: '1', name: 'J Smith', email: "jsmith@example.com"}
 
                 // If no error and we have user data, return it
-                if (res.ok && user) {
+                if ( user) {
                     return user
                 }
                 // Return null if user data could not be retrieved
