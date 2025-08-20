@@ -1,5 +1,9 @@
 'use client'
+
+import { useRouter } from "next/navigation";
+
 const Add = () => {
+    const router = useRouter()
 
     const handleAddProduct = async (e) => {
         e.preventDefault()
@@ -26,6 +30,8 @@ const Add = () => {
         })
         const result = await res.json()
         console.log(result);
+        router.push('/products')
+        // router.refresh()
 
     }
     return (
