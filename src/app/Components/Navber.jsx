@@ -12,7 +12,9 @@ const Navber = () => {
         <li><Link href='/'>Home</Link></li>
         <li><Link href='/blogs'>Blogs</Link></li>
         <li><Link href='/about'>About</Link></li>
+        <li><Link href='/products'>Products</Link></li>
         <li><Link href='/meals'>Meals</Link></li>
+        <li><Link href='/add-products'>Add Product</Link></li>
         <li><Link href='/login'>Login</Link></li>
         <li><Link href='/register'>Register</Link></li>
     </>
