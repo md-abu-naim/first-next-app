@@ -60,10 +60,21 @@ export const authOptions = {
         async signIn({ user, account, profile, email, credentials }) {
             if (account) {
                 // console.log('from call', user, account, profile, email, credentials);
-                const { providerAccountId, provider } = account
-                const { email: user_email, image, name } = user
-                const userData = { providerAccountId, provider, user_email, image, name }
-                console.log(userData);
+                try {
+                    const { providerAccountId, provider } = account
+                    const { email: user_email, image, name } = user
+                    const userData = { providerAccountId, provider, user_email, image, name }
+                    console.log(userData);
+
+                    const userCollection = dbConnect(collectionName.TEST_USER)
+                    const isExistingUser = await userCollection.findOne({providerAccountId})
+                    if(!isExistingUser){
+                        await userCollection.insertOne(userData)
+                    }
+                } catch (error) {
+                    console.log(error);
+                    return false
+                }
             }
 
             return true
