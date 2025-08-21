@@ -62,13 +62,13 @@ export const authOptions = {
                 // console.log('from call', user, account, profile, email, credentials);
                 try {
                     const { providerAccountId, provider } = account
-                    const { email: user_email, image, name } = user
-                    const userData = { providerAccountId, provider, user_email, image, name }
+                    const { email: user_email, image, name, } = user
+                    const userData = { providerAccountId, provider, user_email, image, name, role: 'User' }
                     console.log(userData);
 
                     const userCollection = dbConnect(collectionName.TEST_USER)
-                    const isExistingUser = await userCollection.findOne({providerAccountId})
-                    if(!isExistingUser){
+                    const isExistingUser = await userCollection.findOne({ providerAccountId })
+                    if (!isExistingUser) {
                         await userCollection.insertOne(userData)
                     }
                 } catch (error) {
