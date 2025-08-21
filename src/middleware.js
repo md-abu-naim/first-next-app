@@ -29,8 +29,9 @@ export const middleware = async(req) => {
     const isAdminUser = token?.role === 'admin'
     const isAdminSpecific = req.nextUrl.pathname.startsWith('/products')
 
-    if(isAdminSpecific && !isAdminUser) {
-        return NextResponse.redirect(new URL('/api/auth/signin', req.url))
+    if(isAdminSpecific ) {
+        const callbackUrl  = encodeURIComponent(req.nextUrl.pathname)
+        return NextResponse.redirect(new URL(`/api/auth/signin?callbackUrl=${callbackUrl}`, req.url))
     }
 
     return NextResponse.next()

@@ -1,5 +1,9 @@
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export default function Home() {
+  const session = getServerSession(authOptions)
+  console.log(session);
   return (
     <div>
       <div className="bg-gray-50 text-gray-800">
