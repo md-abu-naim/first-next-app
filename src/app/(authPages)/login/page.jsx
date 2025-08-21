@@ -10,7 +10,7 @@ const Login = async() => {
         <div>
             <h1>Login Page</h1>
             {/* <button onClick={() => signIn()}>Login</button> */}
-            { session.user ? <LogOutBtn /> :<LoginButton />}
+            { session?.user ? <LogOutBtn /> :<LoginButton />}
             <UserInfo />
             <p>{JSON.stringify(session)}</p>
         </div>

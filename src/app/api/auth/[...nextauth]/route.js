@@ -2,6 +2,7 @@
 import dbConnect, { collectionName } from "@/lib/dbConnect"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
     providers: [
@@ -44,18 +45,22 @@ export const authOptions = {
                 // Return null if user data could not be retrieved
                 return null
             }
+        }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET
         })
     ],
     callbacks: {
         async session({ session, token, user }) {
-            if(token){
+            if (token) {
                 session.user.username = token.username;
                 session.user.role = token.role
             }
             return session
         },
         async jwt({ token, user, account, profile, isNewUser }) {
-            if(user){
+            if (user) {
                 token.username = user.username
                 token.role = user.role
             }
