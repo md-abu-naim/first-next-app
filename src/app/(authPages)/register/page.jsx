@@ -1,14 +1,19 @@
 'use client'
 
+import registerUser from "@/app/actions/auth/registerUser";
+
 const Register = () => {
 
-    const handleRegister = e => {
+    const handleRegister = async(e) => {
         e.preventDefault()
         const form = e.target
         const username = form.username.value
         const password = form.password.value
         const user = {username, password}
         console.log(user);
+
+        const result = await registerUser(user)
+        console.log(result);
     }
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-900">
